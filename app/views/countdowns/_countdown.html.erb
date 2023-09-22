@@ -1,17 +1,29 @@
 <div id="<%= dom_id countdown %>" class="text-center mt-5">
-  <p class="fs-1">
-    <%= countdown.name %>
-  </p>
+  <p class="fs-2">&#8987; <%= countdown.name %> &#8987;</p>
   <p class="fw-bold">
 
     <%= countdown.description %>
   </p>
 
-  <%="Fecha actual: #{Time.now.asctime}" %>
+  <span>
+    Fecha actual: 
+    <span class="fw-bold">
+      <%=
+        u = Time.now
+        "#{u.strftime "%d-%m-%Y %H:%M %P"}"
+      %>
+    </span>
+  </span>
+  <p>Fecha término: <span class="fw-bold special">
+    <%=
+      y = countdown.target
+      "#{y.strftime "%d-%m-%Y %H:%M %P"}"
+    %>
+  </span></p>
 
   <% seconds_until_target_time = countdown.target.to_i - Time.now.to_i  %>
 
-  <%= content_tag(:h1, "", class: "display-1 mt-5", data:{
+  <%= content_tag(:h1, "", class: "display-1 mt-5 custom-font text-center", data:{
     controller: "countdown",
     countdown_target: "countdown",
     seconds_until_end_value: seconds_until_target_time
