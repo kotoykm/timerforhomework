@@ -1,0 +1,20 @@
+<div id="<%= dom_id countdown %>" class="text-center mt-5">
+  <p class="fs-1">
+    <%= countdown.name %>
+  </p>
+  <p class="fw-bold">
+
+    <%= countdown.description %>
+  </p>
+
+  <%="Fecha actual: #{Time.now.asctime}" %>
+
+  <% seconds_until_target_time = countdown.target.to_i - Time.now.to_i  %>
+
+  <%= content_tag(:h1, "", class: "display-1 mt-5", data:{
+    controller: "countdown",
+    countdown_target: "countdown",
+    seconds_until_end_value: seconds_until_target_time
+  }) %>  
+
+</div>

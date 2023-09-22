@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="text-center display-1">Cuenta atrás</h1>
+
+
+<div id="countdowns">
+  <% @countdowns.each do |countdown| %>
+    <%= render countdown %>
+
+  <% end %>
+</div>
